@@ -32,3 +32,53 @@ Firewall Alias → Block Rule → Dropped Traffic
 ## ⚙️ Setup Guide
 
 ### Prepare pfSense
+1. Create a user on pfSense for automation (`qradar_usr`)
+2. Enable SSH access (`User - System: Shell account access`)
+3. Configure an alias in pfSense called `qradar_blocklist`.
+4. Add a firewall rule to block traffic from this alias.
+
+### 
+
+
+
+## 🚀 Usage
+
+Block an IP (manual test)
+
+`/opt/qradar/bin/block_ip_pfsense.sh 1.2.3.4`
+
+
+Unblock an IP (manual test)
+
+`/opt/qradar/bin/unblock_ip_pfsense.sh 1.2.3.4`
+
+
+Automatic Blocking
+Attach the Block Action to a QRadar rule (e.g., "10 failed logins from same IP in 5 minutes").
+
+Automatic Unblocking
+Attach the Unblock Action to a scheduled rule, or run via cron for time-based expiry.
+
+## 🔐 Security Notes
+
+- Use a dedicated pfSense user with minimal privileges.
+
+- Consider doas or pfSense API for finer control instead of root access.
+
+- Monitor and log all automated blocks to avoid accidental self-blocking.
+
+## 🛠️ Roadmap
+
+- Add pfSense RESTCONF integration (persistent alias updates via API)
+
+- pfBlockerNG integration for GUI-persistent feeds
+
+- Example QRadar rule exports
+
+## 🤝 Contributing
+
+Pull requests are welcome! Please open an issue first to discuss major changes.
+
+## 📜 License
+
+MIT License – free to use, modify, and share.
