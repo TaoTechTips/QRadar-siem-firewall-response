@@ -25,3 +25,8 @@ block_ip_pfsense.sh
    ▼
 Firewall Alias → Block Rule → Dropped Traffic
 
+```
+
+---
+
+## Guided Steps
