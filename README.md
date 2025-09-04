@@ -63,7 +63,7 @@ Attach the Unblock Action to a scheduled rule, or run via cron for time-based ex
 
 - Use a dedicated pfSense user with minimal privileges.
 
-- Consider doas or pfSense API for finer control instead of root access.
+- Least Privilege - Add dedicated user to sudoers file but restrict access to run only the required command for the automation to work.
 
 - Monitor and log all automated blocks to avoid accidental self-blocking.
 
@@ -81,4 +81,4 @@ Pull requests are welcome! Please open an issue first to discuss major changes.
 
 ## 📜 License
 
-MIT License – free to use, modify, and share.
+free to use, modify, and share.
