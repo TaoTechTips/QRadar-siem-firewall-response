@@ -29,4 +29,6 @@ Firewall Alias → Block Rule → Dropped Traffic
 
 ---
 
-## Guided Steps
+## ⚙️ Setup Guide
+
+# Prepare pfSense
