@@ -53,10 +53,10 @@ Unblock an IP (manual test)
 `/opt/qradar/bin/unblock_ip_pfsense.sh 1.2.3.4`
 
 
-Automatic Blocking
+Automatic Blocking:
 Attach the Block Action to a QRadar rule (e.g., "10 failed logins from same IP in 5 minutes").
 
-Automatic Unblocking
+Automatic Unblocking:
 Attach the Unblock Action to a scheduled rule, or run via cron for time-based expiry.
 
 ## 🔐 Security Notes
