@@ -19,7 +19,7 @@ flowchart LR
 ```
 
 * **QRadar**: Detects offense (e.g., brute force, port scanning).
-* **Custom Action Script**: Bash runs when offense is triggered.
+* **Custom Action Script**: Bash script runs when offense is triggered.
 * **pfSense Firewall**: Executes `pfctl` command which blocks offending IP.
 
 ---
@@ -83,16 +83,19 @@ flowchart LR
 3. **Test Workflow**
 
    * Trigger a QRadar offense with a test IP.
-   * Verify pfSense block rule is created.
-   * Check firewall logs.
+   * QRadar offense is generated and automated response is triggered.
+   * Verify pfSense now has the IP in its block list.
+     ```bash
+     pfctl -t qradar_blocklist -T show
+     ```
 
 ---
 
 ## 📊 Results
 
 * **Before Automation:** Blocking required manual firewall login (\~3–5 mins).
-* **After Automation:** IP blocked automatically in seconds.
-* **SOC Value:** Faster containment, reduced analyst fatigue, repeatable playbook.
+* **After Automation:** QRadar offense triggers script -> IP blocked automatically in seconds.
+* **SOC Value:** Faster response & containment, reduced analyst fatigue, repeatable playbook.
 
 ---
 
@@ -107,9 +110,10 @@ flowchart LR
 ## 🧰 Skills & Keywords
 
 * SIEM Engineering (QRadar Custom Actions)
-* Firewall Integration (pfSense API)
+* Firewall Integration (pfSense via SSH + pfctl)
+* Bash Scripting
+* SOC Workflow Optimization
 * Incident Response Automation
-* Python, API, SOAR Concepts
 
 ---
 
