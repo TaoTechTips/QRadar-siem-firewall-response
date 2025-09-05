@@ -13,13 +13,14 @@ By reducing response time from minutes to seconds, this automation helps SOC tea
 ```mermaid
 flowchart LR
     A[QRadar Offense Triggered] --> B[Custom Action Script]
-    B --> C[pfSense Firewall API]
-    C --> D[Malicious IP Blocked]
+    B --> C[SSH Connection to pfSense Firewall]
+    C --> D[pfctl Adds IP to Block List Alias]
+    D --> E[Firewall Rule Auto Blocks IPs Added to Block List]
 ```
 
 * **QRadar**: Detects offense (e.g., brute force, port scanning).
-* **Custom Action Script**: Python/Bash script triggered by QRadar.
-* **pfSense Firewall**: Receives API call → blocks offending IP.
+* **Custom Action Script**: Bash runs when offense is triggered.
+* **pfSense Firewall**: Executes `pfctl` command which blocks offending IP.
 
 ---
 
@@ -27,21 +28,27 @@ flowchart LR
 
 ### 🔹 Prerequisites
 
-* IBM QRadar CE (Community Edition)
-* pfSense Firewall VM
-* Python 3 + `requests` library (for API calls)
-* API access enabled on pfSense
+* IBM QRadar CE (SIEM)
+* pfSense Firewall VM (Router x Firewall)
+* Windows Server (Victim Machine)
+* SSH access with restricted admin privileges using ssh keys for authentication
+* Bash Script
 
 ### 🔹 Steps
 
-1. **Create Custom Action in QRadar**
+1. **Set up SSH Keys for Authentication**
 
-   * Go to *Admin → Custom Actions → Add*.
-   * Configure script execution.
+   * On QRadar:
+   ``` bash
+    ssh-keygen -t rsa
+    ssh-copy-id admin@<pfsense-ip>
+   ```
+   
+   Ensure the Qradar system can log in to pfSense without a passowrd
 
-2. **Write Python Script**
+2. **Write Bash Script**
 
-```python
+```bash
 import requests
 import sys
 
@@ -70,7 +77,7 @@ else:
 3. **Test Workflow**
 
    * Trigger a QRadar offense with a test IP.
-   * Verify rule is pushed to pfSense.
+   * Verify pfSense block rule is created.
    * Check firewall logs.
 
 ---
