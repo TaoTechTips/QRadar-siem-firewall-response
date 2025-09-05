@@ -48,31 +48,37 @@ flowchart LR
 
 2. **Write Bash Script**
 
-```bash
-import requests
-import sys
-
-# Get malicious IP from QRadar offense
-malicious_ip = sys.argv[1]
-
-# pfSense API details
-url = f"https://<pfsense-ip>/api/v1/firewall/rule"
-headers = {"Authorization": "Bearer <API_TOKEN>"}
-
-payload = {
-    "action": "block",
-    "interface": "wan",
-    "source": malicious_ip,
-    "description": "Blocked by QRadar Custom Action"
-}
-
-response = requests.post(url, json=payload, headers=headers, verify=False)
-
-if response.status_code == 200:
-    print(f"[+] Successfully blocked {malicious_ip}")
-else:
-    print(f"[-] Failed to block {malicious_ip} - {response.text}")
-```
+    ```bash
+    #!/bin/bash
+    #
+    # block_ip.sh - Add an IP address to pfSense blocklist via SSH
+    
+    # === Configuration ===
+    PFSENSE_HOST="10.10.1.1"
+    PFSENSE_USER="qradar_usr"
+    SSH_KEY="/home/customactionuser/.ssh/id_rsa"
+    BLOCK_TABLE="qradar_blocklist"
+    
+    # === Input validation ===
+    if [ -z "$1" ]; then
+        echo "Usage: $0 <IP_ADDRESS>"
+        exit 1
+    fi
+    
+    IP=$1
+    
+    # === Add IP to blocklist ===
+    ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no "$PFSENSE_USER@$PFSENSE_HOST" \
+        "sudo /sbin/pfctl -t $BLOCK_TABLE -T add $IP"
+    
+    # === Check result ===
+    if [ $? -eq 0 ]; then
+        echo "[+] Successfully added $IP to blocklist ($BLOCK_TABLE)"
+    else
+        echo "[-] Failed to add $IP to blocklist"
+        exit 1
+    fi
+    ```
 
 3. **Test Workflow**
 
