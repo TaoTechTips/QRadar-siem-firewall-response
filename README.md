@@ -80,11 +80,12 @@ flowchart LR
     fi
     ```
 
-3. **Test Workflow**
+4. **Test Workflow**
 
    * Trigger a QRadar offense with a test IP.
    * QRadar offense is generated and automated response is triggered.
    * Verify pfSense now has the IP in its block list.
+   * Verify blocked connection
      ```bash
      pfctl -t qradar_blocklist -T show
      ```
@@ -101,8 +102,8 @@ flowchart LR
 
 ## 🔮 Future Enhancements
 
+* ✅ Add an unblock script to resotre connection.
 * 🔗 Integrate with **Splunk SOAR CE** for advanced playbook orchestration.
-* ✅ Add reputation check (VirusTotal/AbuseIPDB) before blocking.
 * 🌐 Extend support to other firewalls (Cisco ASA, Palo Alto, Fortinet).
 
 ---
