@@ -1,84 +1,118 @@
-# QRadar-siem-firewall-response
-Automated blocking of malicious IP addresses on pfSense firewall in response to QRadar SIEM correlation rules
+# 🚀 Automated Firewall Blocking with QRadar Custom Actions
 
-This project demonstrates how to extend QRadar's **Custom Rule Engine (CRE) actions** to dynamically add or remove IP addresses from a pfSense firewall alias. The result is automated threat response (SOAR-lite) without needing extra tools.
+## 📌 Introduction
 
-## ✨ Features
-- Block malicious IPs on pfSense directly from QRadar rules  
-- Unblock IPs automatically (manual trigger or scheduled timeout)  
-- Integration via SSH (`pfctl`) or pfSense REST API (if enabled)  
-- Works with pfSense aliases, integrates with firewall rules  
-- Lightweight scripts, no extra dependencies  
+In Security Operations Centers (SOCs), analysts often spend valuable time manually responding to recurring malicious IP connections. This project demonstrates how to automate **incident response in IBM QRadar SIEM** by creating a **custom action script** that blocks malicious IPs directly on a firewall (pfSense).
+
+By reducing response time from minutes to seconds, this automation helps SOC teams improve their **MTTR (Mean Time to Respond)** and strengthens the overall security posture.
 
 ---
 
-## 🏗️ Architecture
-```text
-[QRadar SIEM]
-   │  (Custom Action)
-   ▼
-block_ip_pfsense.sh
-   │  (SSH / API)
-   ▼
-[pfSense Firewall]
-   │
-   ▼
-Firewall Alias → Block Rule → Dropped Traffic
+## 🏗️ Architecture Overview
 
+```mermaid
+flowchart LR
+    A[QRadar Offense Triggered] --> B[Custom Action Script]
+    B --> C[pfSense Firewall API]
+    C --> D[Malicious IP Blocked]
 ```
 
+* **QRadar**: Detects offense (e.g., brute force, port scanning).
+* **Custom Action Script**: Python/Bash script triggered by QRadar.
+* **pfSense Firewall**: Receives API call → blocks offending IP.
+
 ---
 
-## ⚙️ Setup Guide
+## ⚙️ Implementation
 
-### Prepare pfSense
-1. Create a user on pfSense for automation (`qradar_usr`)
-2. Enable SSH access (`User - System: Shell account access`)
-3. Configure an alias in pfSense called `qradar_blocklist`.
-4. Add a firewall rule to block traffic from this alias.
+### 🔹 Prerequisites
 
-### 
+* IBM QRadar CE (Community Edition)
+* pfSense Firewall VM
+* Python 3 + `requests` library (for API calls)
+* API access enabled on pfSense
 
+### 🔹 Steps
 
+1. **Create Custom Action in QRadar**
 
-## 🚀 Usage
+   * Go to *Admin → Custom Actions → Add*.
+   * Configure script execution.
 
-Block an IP (manual test)
+2. **Write Python Script**
 
-`/opt/qradar/bin/block_ip_pfsense.sh 1.2.3.4`
+```python
+import requests
+import sys
 
+# Get malicious IP from QRadar offense
+malicious_ip = sys.argv[1]
 
-Unblock an IP (manual test)
+# pfSense API details
+url = f"https://<pfsense-ip>/api/v1/firewall/rule"
+headers = {"Authorization": "Bearer <API_TOKEN>"}
 
-`/opt/qradar/bin/unblock_ip_pfsense.sh 1.2.3.4`
+payload = {
+    "action": "block",
+    "interface": "wan",
+    "source": malicious_ip,
+    "description": "Blocked by QRadar Custom Action"
+}
 
+response = requests.post(url, json=payload, headers=headers, verify=False)
 
-Automatic Blocking:
-Attach the Block Action to a QRadar rule (e.g., "10 failed logins from same IP in 5 minutes").
+if response.status_code == 200:
+    print(f"[+] Successfully blocked {malicious_ip}")
+else:
+    print(f"[-] Failed to block {malicious_ip} - {response.text}")
+```
 
-Automatic Unblocking:
-Attach the Unblock Action to a scheduled rule, or run via cron for time-based expiry.
+3. **Test Workflow**
 
-## 🔐 Security Notes
+   * Trigger a QRadar offense with a test IP.
+   * Verify rule is pushed to pfSense.
+   * Check firewall logs.
 
-- Use a dedicated pfSense user with minimal privileges.
+---
 
-- Least Privilege - Add dedicated user to sudoers file but restrict access to run only the required command for the automation to work.
+## 📊 Results
 
-- Monitor and log all automated blocks to avoid accidental self-blocking.
+* **Before Automation:** Blocking required manual firewall login (\~3–5 mins).
+* **After Automation:** IP blocked automatically in seconds.
+* **SOC Value:** Faster containment, reduced analyst fatigue, repeatable playbook.
 
-## 🛠️ Roadmap
+---
 
-- Add pfSense RESTCONF integration (persistent alias updates via API)
+## 🔮 Future Enhancements
 
-- pfBlockerNG integration for GUI-persistent feeds
+* 🔗 Integrate with **Splunk SOAR CE** for advanced playbook orchestration.
+* ✅ Add reputation check (VirusTotal/AbuseIPDB) before blocking.
+* 🌐 Extend support to other firewalls (Cisco ASA, Palo Alto, Fortinet).
 
-- Example QRadar rule exports
+---
 
-## 🤝 Contributing
+## 🧰 Skills & Keywords
 
-Pull requests are welcome! Please open an issue first to discuss major changes.
+* SIEM Engineering (QRadar Custom Actions)
+* Firewall Integration (pfSense API)
+* Incident Response Automation
+* Python, API, SOAR Concepts
 
-## 📜 License
+---
 
-free to use, modify, and share.
+## 📸 Screenshots (To Add)
+
+* QRadar offense triggered
+* Custom Action execution logs
+* pfSense block rule added
+* Verification of blocked traffic
+
+---
+
+## ✍️ Author
+
+👤 **Taofeek Isiaka-Aliagan**
+
+* 💼 Cybersecurity Engineer (SIEM | SOC | Security Engineering)
+* 📜 IBM QRadar SIEM Admin | CompTIA Security+ | ISC² CC
+* 🌐 [LinkedIn](https://linkedin.com/in/taotechtips) | [Medium](https://medium.com/@taotechtips)
