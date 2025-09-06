@@ -136,7 +136,6 @@ flowchart LR
 
 * ✅ Add an unblock script to resotre connection.
 * 🔗 Integrate with **Splunk SOAR CE** for advanced playbook orchestration.
-* 🌐 Extend support to other firewalls (Cisco ASA, Palo Alto, Fortinet).
 
 ---
 
