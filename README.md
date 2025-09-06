@@ -122,11 +122,18 @@ flowchart LR
 
 ---
 
-## 📸 Screenshots (To Add)
+## 📸 Screenshots
 
 * QRadar offense triggered
+
+  <img width="1861" height="39" alt="Screenshot 2025-09-05 235147" src="https://github.com/user-attachments/assets/f4dcac3f-ee93-43c4-9c17-d2b78f4e0cd0" />
+
+  <img width="1251" height="353" alt="Screenshot 2025-09-05 234636" src="https://github.com/user-attachments/assets/9aae31b1-5af2-4a35-a9f0-a100ede46d1e" />
+
 * Custom Action execution logs
-* pfSense block rule added
+
+  <img width="1142" height="151" alt="Screenshot 2025-09-05 234300" src="https://github.com/user-attachments/assets/830dc9b4-3e20-4851-9685-2a76e8b3ca22" />
+
 * Verification of blocked traffic
   
   --- Blocked RDP connection ---
