@@ -104,24 +104,6 @@ flowchart LR
 
 ---
 
-## 🔮 Future Enhancements
-
-* ✅ Add an unblock script to resotre connection.
-* 🔗 Integrate with **Splunk SOAR CE** for advanced playbook orchestration.
-* 🌐 Extend support to other firewalls (Cisco ASA, Palo Alto, Fortinet).
-
----
-
-## 🧰 Skills & Keywords
-
-* SIEM Engineering (QRadar Custom Actions)
-* Firewall Integration (pfSense via SSH + pfctl)
-* Bash Scripting
-* SOC Workflow Optimization
-* Incident Response Automation
-
----
-
 ## 📸 Screenshots
 
 * QRadar offense triggered
@@ -148,6 +130,23 @@ flowchart LR
 
   <img width="1133" height="139" alt="Screenshot 2025-09-06 004909" src="https://github.com/user-attachments/assets/83695529-1040-4586-afac-e7aed24b27e9" />
 
+---
+
+## 🔮 Future Enhancements
+
+* ✅ Add an unblock script to resotre connection.
+* 🔗 Integrate with **Splunk SOAR CE** for advanced playbook orchestration.
+* 🌐 Extend support to other firewalls (Cisco ASA, Palo Alto, Fortinet).
+
+---
+
+## 🧰 Skills & Keywords
+
+* SIEM Engineering (QRadar Custom Actions)
+* Firewall Integration (pfSense via SSH + pfctl)
+* Bash Scripting
+* SOC Workflow Optimization
+* Incident Response Automation
 
 ---
 
