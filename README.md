@@ -10,6 +10,10 @@ By reducing response time from minutes to seconds, this automation helps SOC tea
 
 ## 🏗️ Architecture Overview
 
+### Network Architecture
+
+![SOC Architecture](https://github.com/user-attachments/assets/a39d83fb-bd17-4d0d-92ce-3752ff4d510b)
+
 ```mermaid
 flowchart LR
     A[QRadar Offense Triggered] --> B[Custom Action Script]
