@@ -128,6 +128,19 @@ flowchart LR
 * Custom Action execution logs
 * pfSense block rule added
 * Verification of blocked traffic
+  
+  --- Blocked RDP connection ---
+  
+  <img width="728" height="337" alt="Screenshot 2025-09-06 005034" src="https://github.com/user-attachments/assets/fbf8929b-f647-40e8-b2bc-5f5c0102b4b2" />
+
+  --- Blocked QRadar UI Connection (HTTPS) ---
+  
+  <img width="548" height="443" alt="Screenshot 2025-09-06 005403" src="https://github.com/user-attachments/assets/65fa0e91-14d5-44b3-9779-abc1de9a549f" />
+
+  --- Firewall Log Showing Blocked Traffic ---
+
+  <img width="1133" height="139" alt="Screenshot 2025-09-06 004909" src="https://github.com/user-attachments/assets/83695529-1040-4586-afac-e7aed24b27e9" />
+
 
 ---
 
