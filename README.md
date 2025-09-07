@@ -24,7 +24,7 @@ flowchart LR
     D --> E[Firewall Rule Auto Blocks IPs Added to Block List]
 ```
 
-* **QRadar**: Detects offense (e.g., brute force, port scanning).
+* **QRadar**: Detects offense (e.g., brute force).
 * **Custom Action Script**: Bash script runs when offense is triggered.
 * **pfSense Firewall**: Executes `pfctl` command which blocks offending IP.
 
