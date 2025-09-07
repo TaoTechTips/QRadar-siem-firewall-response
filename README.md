@@ -79,8 +79,12 @@ flowchart LR
         exit 1
     fi
     ```
+    
 
-4. **Test Workflow**
+4. [Create QRadar Custom Action and Rule Test](https://github.com/TaoTechTips/QRadar-siem-firewall-response/blob/main/3.%20QRadar%20Custom%20Action%20Setup%20and%20Rule%20Creation.md)
+
+
+5. **Test Workflow**
 
    * Trigger a QRadar offense with a test IP.
    * QRadar offense is generated and automated response is triggered.
