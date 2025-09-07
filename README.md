@@ -32,7 +32,7 @@ flowchart LR
 
 ## ⚙️ Implementation
 
-### 🔹 Prerequisites
+### Prerequisites
 
 * IBM QRadar CE (SIEM)
 * pfSense Firewall VM (Router x Firewall)
@@ -40,7 +40,7 @@ flowchart LR
 * SSH access with restricted admin privileges using ssh keys for authentication
 * Bash Script
 
-### 🔹 Steps
+### Steps
 
 1. [**Prepare pfSense**](https://github.com/TaoTechTips/QRadar-siem-firewall-response/blob/main/1.%20Preparing%20pfSense.md)
 
