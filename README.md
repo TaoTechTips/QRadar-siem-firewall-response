@@ -42,7 +42,7 @@ flowchart LR
 
 ### 🔹 Steps
 
-1. [**Prepare pfSense**]()
+1. [**Prepare pfSense**](https://github.com/TaoTechTips/QRadar-siem-firewall-response/blob/main/1.%20Preparing%20pfSense.md)
 
    * On QRadar:
    ``` bash
