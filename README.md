@@ -89,19 +89,11 @@ flowchart LR
    * Trigger a QRadar offense with a test IP.
    * QRadar offense is generated and automated response is triggered.
    * Verify pfSense now has the IP in its block list.
-   * Verify blocked connection
      ```bash
      pfctl -t qradar_blocklist -T show
      ```
-
----
-
-## 📊 Results
-
-* **Before Automation:** Blocking required manual firewall login (\~3–5 mins).
-* **After Automation:** QRadar offense triggers script -> IP blocked automatically in seconds.
-* **SOC Value:** Faster response & containment, reduced analyst fatigue, repeatable playbook.
-
+   * Verify blocked connection in firewall logs.   
+     
 ---
 
 ## 📸 Screenshots
@@ -132,9 +124,18 @@ flowchart LR
 
 ---
 
+## 📊 Results
+
+* **Before Automation:** Blocking malicious IPs required manual firewall login (\~3–5 mins).
+* **After Automation:** QRadar offense triggers script -> IP blocked automatically in seconds.
+* **SOC Value:** Faster response & containment, reduced analyst fatigue, repeatable playbook.
+
+---
+
 ## 🔮 Future Enhancements
 
-* ✅ Add an unblock script to resotre connection.
+* 🔗 Integrate with email sever and send email alerts to analyst to review.
+* ✅ Add an unblock script to restore connection after analyst review.
 * 🔗 Integrate with **Splunk SOAR CE** for advanced playbook orchestration.
 
 ---
