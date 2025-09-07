@@ -42,7 +42,7 @@ flowchart LR
 
 ### 🔹 Steps
 
-1. **Set up SSH Keys for Authentication**
+1. [**Prepare pfSense**]()
 
    * On QRadar:
    ``` bash
