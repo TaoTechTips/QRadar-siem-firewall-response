@@ -44,15 +44,9 @@ flowchart LR
 
 1. [**Prepare pfSense**](https://github.com/TaoTechTips/QRadar-siem-firewall-response/blob/main/1.%20Preparing%20pfSense.md)
 
-   * On QRadar:
-   ``` bash
-    ssh-keygen -t rsa
-    ssh-copy-id admin@<pfsense-ip>
-   ```
-   
-   Ensure the Qradar system can log in to pfSense without a passowrd
+2. [**Prepare QRadar**](https://github.com/TaoTechTips/QRadar-siem-firewall-response/blob/main/2.%20Preparing%20QRadar.md)
 
-2. **Write Bash Script**
+1. **Write Bash Script**
 
     ```bash
     #!/bin/bash
