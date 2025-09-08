@@ -127,12 +127,12 @@ flowchart LR
 ## 📊 Results
 
 * **Before Automation:** Blocking malicious IPs required manual firewall login (\~3–5 mins).
-* **After Automation:** QRadar offense triggers script -> IP blocked automatically in seconds.
+* **After Automation:** QRadar offense triggers script -> IP blocked automatically in seconds (`~10 seconds`).
 * **SOC Value:** Faster response & containment, reduced analyst fatigue, repeatable playbook.
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 * Integrate with email sever to send email alerts to analysts for review.
 * Add an unblock script to restore connection after analyst review if false positive.
@@ -141,7 +141,7 @@ flowchart LR
 
 ---
 
-## 🧰 Skills & Keywords
+## Skills & Keywords
 
 * SIEM Engineering (QRadar Custom Actions)
 * Firewall Integration
