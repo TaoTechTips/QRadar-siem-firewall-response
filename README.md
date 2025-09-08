@@ -1,4 +1,4 @@
-# 🚀 Automated Firewall Blocking with QRadar Custom Actions
+# Automated Firewall Blocking with QRadar Custom Actions
 
 ## 📌 Introduction
 
@@ -35,7 +35,7 @@ flowchart LR
 ### Prerequisites
 
 * IBM QRadar CE (SIEM)
-* pfSense Firewall VM (Router x Firewall)
+* pfSense (Router x Firewall)
 * Windows Server (Victim Machine)
 * SSH access with restricted admin privileges using ssh keys for authentication
 * Bash Script
@@ -143,7 +143,7 @@ flowchart LR
 ## 🧰 Skills & Keywords
 
 * SIEM Engineering (QRadar Custom Actions)
-* Firewall Integration (pfSense via SSH + pfctl)
+* Firewall Integration
 * Bash Scripting
 * SOC Workflow Optimization
 * Incident Response Automation
