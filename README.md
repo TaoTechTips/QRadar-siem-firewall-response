@@ -18,11 +18,11 @@ By reducing response time from minutes to seconds, this automation helps SOC tea
 
 ```mermaid
 flowchart LR
-    A[QRadar Offense Triggered] --> B[Custom Action Script]
-    B --> C[SSH Connection to pfSense Firewall]
-    C --> D[pfctl Adds IP to Block List Alias]
-    D --> E[Firewall Rule Auto Blocks IPs Added to Block List]
-```
+    A[QRadar<br/>Offense Triggered] --> B[Custom Action<br/>Bash Script]
+    B --> C[SSH Connection<br/>to pfSense]
+    C --> D[pfctl Adds IP<br/>to Block List]
+    D --> E[Firewall Rule<br/>Blocks IPs in List]
+```    
 
 * **QRadar**: Detects offense (e.g., brute force).
 * **Custom Action Script**: Bash script runs when offense is triggered.
