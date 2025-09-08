@@ -134,8 +134,9 @@ flowchart LR
 
 ## 🔮 Future Enhancements
 
-* Integrate with email sever and send email alerts to analyst to review.
-* Add an unblock script to restore connection after analyst review.
+* Integrate with email sever to send email alerts to analysts for review.
+* Add an unblock script to restore connection after analyst review if false positive.
+* Add a step to check IP reputation before taking action.
 * Integrate with **Splunk SOAR CE** for advanced playbook orchestration.
 
 ---
