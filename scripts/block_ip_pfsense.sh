@@ -1,8 +1,6 @@
 #!/bin/bash
-#
-# block_ip.sh - Add an IP address to pfSense blocklist via SSH
 
-# === Configuration ===
+# === Static Variables ===
 PFSENSE_HOST="10.10.1.1"
 PFSENSE_USER="qradar_usr"
 SSH_KEY="/home/customactionuser/.ssh/id_rsa"
