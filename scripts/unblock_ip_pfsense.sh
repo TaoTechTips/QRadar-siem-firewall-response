@@ -1,13 +1,10 @@
 #!/bin/bash
-#
-# unblock_ip.sh - Remove an IP address from pfSense blocklist via SSH
-#
 
-# === Configuration ===
-PFSENSE_HOST="10.10.1.1"             # pfSense IP/hostname
-PFSENSE_USER="qradar_usr"            # pfSense user with sudo rights for pfctl
-SSH_KEY="/root/.ssh/id_rsa"          # Private key path on QRadar
-BLOCK_TABLE="qradar_blocklist"       # pfSense table name
+# === Static Variables ===
+PFSENSE_HOST="10.10.1.1"             
+PFSENSE_USER="qradar_usr"         
+SSH_KEY="/root/.ssh/id_rsa"         
+BLOCK_TABLE="qradar_blocklist"    
 
 # === Input validation ===
 if [ -z "$1" ]; then
