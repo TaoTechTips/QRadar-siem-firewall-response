@@ -3,7 +3,7 @@
 # === Static Variables ===
 PFSENSE_HOST="10.10.1.1"             
 PFSENSE_USER="qradar_usr"         
-SSH_KEY="/root/.ssh/id_rsa"         
+SSH_KEY="/home/customactionuser/.ssh/id_rsa"         
 BLOCK_TABLE="qradar_blocklist"    
 
 # === Input validation ===
